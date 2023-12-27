@@ -1,0 +1,11 @@
+if __name__ == '__main__':
+    students = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name,score])
+    mn = min(students, key=lambda x:x[1])
+    new_students = sorted([student for student in students if student[1]>mn[1]], key=lambda x:x[1])
+    second_student = sorted([student for student in new_students if student[1]==new_students[0][1]], key=lambda x:x[0])
+    for sname in second_student:
+        print(sname[0])
